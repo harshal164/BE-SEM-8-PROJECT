@@ -187,7 +187,7 @@ def evaluate():
     valid_hr_imgs = tl.vis.read_images(valid_hr_img_list, path=config.VALID.hr_img_path, n_threads=32)
     
     
-    imid = 64
+    imid = 10
     valid_lr_img = valid_lr_imgs[imid]
     valid_hr_img = valid_hr_imgs[imid]
     # valid_lr_img = get_imgs_fn('test.png', 'data2017/')  # if you want to test your own image
