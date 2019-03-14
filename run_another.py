@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-
-    valid_lr_img = get_imgs_fn('test.png', 'input/')  # if you want to test your own image
+    inp_image=input("give input image name")
+    valid_lr_img = get_imgs_fn(inp_image, 'input/')  # if you want to test your own image
     valid_lr_img = (valid_lr_img / 127.5) - 1  # rescale to ［－1, 1]
     # print(valid_lr_img.min(), valid_lr_img.max())
 
@@ -22,9 +22,9 @@
 
     print("LR size: %s /  generated HR size: %s" % (size, out.shape))  # LR size: (339, 510, 3) /  gen HR size: (1, 1356, 2040, 3)
     print("[*] save images")
-    tl.vis.save_image(out[0], 'output' + '/valid_gen.png')
-    tl.vis.save_image(valid_lr_img, 'output' + '/valid_lr.png')
-    tl.vis.save_image(valid_hr_img, 'output' + '/valid_hr.png')
+    tl.vis.save_image(out[0], 'output' + '/valid_gen '+inp_image+'.png')
+    tl.vis.save_image(valid_lr_img, 'output' + '/valid_lr '+inp_image+'.png')
+   
 
     out_bicu = scipy.misc.imresize(valid_lr_img, [size[0] * 4, size[1] * 4], interp='bicubic', mode=None)
     tl.vis.save_image(out_bicu, 'output' + '/valid_bicubic.png')
